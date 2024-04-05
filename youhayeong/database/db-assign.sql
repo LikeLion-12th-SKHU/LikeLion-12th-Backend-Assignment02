@@ -34,8 +34,8 @@ CREATE TABLE `sugang` (
 
 INSERT INTO sugang (lectureName, id, departmentName)
 VALUES ('리눅스 시스템', 202214033, 'it융합자율학부'),
-('데이터베이스', 202314034, 'it융합자율학부'),
-('백엔드 프레임워크', 201814035, 'it융합자율학부'),
+('데이터베이스', 202314034, '미디어융합자율학부'),
+('백엔드 프레임워크', 201814035, '인문융합자율학부'),
 ('C프로그래밍', 202414036, '소프트웨어융합학부');
 
 ALTER TABLE `student` ADD CONSTRAINT `PK_STUDENT` PRIMARY KEY (
@@ -51,5 +51,5 @@ ALTER TABLE `sugang` ADD CONSTRAINT `PK_SUGANG` PRIMARY KEY (
 );
 
 SELECT sg.*, d.departmentId, st.name, st.sex, st.age
-FROM sugang sg INNER JOIN student st ON sg.id = st.id
-INNER JOIN department d ON st.departmentName = d.departmentName;
+FROM sugang sg JOIN student st ON sg.id = st.id
+JOIN department d ON sg.departmentName = d.departmentName;
