@@ -1,7 +1,7 @@
 ﻿CREATE TABLE `theater` (
 	`id`	int	NOT NULL	COMMENT '극장 고유 식별자',
 	`name`	varchar(20)	NOT NULL	COMMENT '극장의 이름',
-	`location`	varchar(20)	NOT NULL	COMMENT '극장의 위치'
+	`location`	varchar(100)	NOT NULL	COMMENT '극장의 위치'
 );
 
 CREATE TABLE `reservation` (
@@ -15,7 +15,8 @@ CREATE TABLE `reservation` (
 CREATE TABLE `customer` (
 	`id`	int	NOT NULL	COMMENT '고객 고유 식별자',
 	`name`	varchar(20)	NOT NULL	COMMENT '고객의 이름',
-	`address`	varchar(20)	NULL	COMMENT '고객의 주소'
+	`phone_number`	varchar(20)	NOT NULL	COMMENT '고객의 전화번호',
+	`address`	varchar(100)	NULL	COMMENT '고객의 주소'
 );
 
 ALTER TABLE `theater` ADD CONSTRAINT `PK_THEATER` PRIMARY KEY (
@@ -34,11 +35,11 @@ INSERT INTO theater (id ,name, location)
      VALUES (1, 'CGV', '서울'),
      (2, '롯데시네마', '인천');
 
-INSERT INTO customer (id, name, address)
-     VALUES (1, '김댕댕', '서울'),
-     (2, '이달님', '경기'),
-     (3, '박삐약', '인천'),
-     (4, '최꿀꿀', '서울');
+INSERT INTO customer (id, name, phone_number, address)
+     VALUES (1, '김댕댕', '010-1234-5678', '서울'),
+     (2, '이달님', '010-2356-9876', '경기'),
+     (3, '박삐약', '010-0987-6543', '인천'),
+     (4, '최꿀꿀', '010-8888-5555', '서울');
 
 INSERT INTO reservation (id, seat_number, date, theater_id, customer_id)
      VALUES (1, 'A12', '2024-04-05', 1, 4),
@@ -52,8 +53,9 @@ INSERT INTO reservation (id, seat_number, date, theater_id, customer_id)
      (9, 'E09', '2024-04-15', 1, 1);
 
 
-SELECT r.id, r.date, t.name AS theater_name, t.location AS theater_loacation, r.seat_number, c.name AS customer_name, c.address AS customer_address
+SELECT r.id, r.date, t.name AS theater_name, t.location AS theater_loacation, r.seat_number, c.name AS customer_name, c.phone_number AS customer_phone_number
 FROM reservation r 
 JOIN customer c ON r.customer_id = c.id
 JOIN theater t ON r.theater_id = t.id;
+
 
