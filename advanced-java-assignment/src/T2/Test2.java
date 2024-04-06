@@ -21,7 +21,7 @@ public class Test2 {
         // 문제3 : 주어진 배열에서 평균값을 계산하는 람다식을 작성
         double ans2 = action((array -> {
             return Arrays.stream(array)
-                    .min()
+                    .average()
                     .orElseThrow(NoSuchElementException::new);
         }));
         System.out.println(ans2);
