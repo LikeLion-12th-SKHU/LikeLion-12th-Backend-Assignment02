@@ -10,7 +10,7 @@ public class Test1 {
     public static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        list = Arrays.asList(1,2,3,4,5,6);
+        list = Arrays.asList(1, 2, 3, 4, 5, 6);
 
         double avg = list.stream()
                 .mapToDouble(Math::sqrt)

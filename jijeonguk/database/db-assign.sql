@@ -30,9 +30,7 @@ ALTER TABLE `stores` ADD CONSTRAINT `PK_STORES` PRIMARY KEY (
 );
 
 ALTER TABLE `orders` ADD CONSTRAINT `PK_ORDERS` PRIMARY KEY (
-	`id`,
-	`customer_id`,
-	`store_id`
+	`id`
 );
 
 ALTER TABLE `orders` ADD CONSTRAINT `FK_customer_TO_orders_1` FOREIGN KEY (
