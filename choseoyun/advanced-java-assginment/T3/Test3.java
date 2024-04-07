@@ -8,7 +8,7 @@ public class Test3 {
 
         System.out.print("입력할 정수의 개수를 입력하세요: ");
         int n = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character left by nextInt()
+        scanner.nextLine();
 
         System.out.println("정수로 변환할 문자열을 입력하세요 (공백으로 구분하여 입력하세요): ");
         String input = scanner.nextLine();
@@ -23,16 +23,17 @@ public class Test3 {
                     int num = Integer.parseInt(number);
                     sum += num;
                 } catch (NumberFormatException e) {
-                   System.out.println("예외 발생: \"" + number + "\" 은(는) 정수로 변환할 수 없습니다.");
+                    System.out.println("예외가 발생하였습니다!");
                 }
             }
-            System.out.println("입력된 정수들의 합: " + sum);
-        }else{
-            System.out.println("입력할 숫자의 개수를 확인하세요. \n" +"입력할 정수의 개수: "+ n + " 입력한 정수의 수: "+ numbers.length);
+            System.out.println("정수들의 합은 " + sum);
         }
         scanner.close();
 
     }
 }
+
+
+
 
 
