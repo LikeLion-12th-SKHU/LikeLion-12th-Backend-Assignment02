@@ -10,11 +10,10 @@ public class Test2 {
 
     public static void main(String[] args) {
         double ans1 = action((array -> {
-            double result = 0;
-            for (int i = 1; i <= array.length; i++) {
-                if (array[(int)result] > array[i - 1]) { result = i; }
-                else { result = i - 1; }
-            } return array[(int)result];
+            double max = 0;
+            for (int i = 0; i < array.length; i++) {
+                if (max < array[i]) { max = array[i]; }
+            } return max;
         }));
         System.out.println(ans1);
 
