@@ -1,6 +1,5 @@
 package T2;
 
-public interface ArrayProcessing
-{
+public interface ArrayProcessing {
     double apply(double[] array);
 }
