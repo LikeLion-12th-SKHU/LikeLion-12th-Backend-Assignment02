@@ -23,8 +23,8 @@ public class Test2 {
         //문제3: 주어진 배열에서 평균값을 계산하는 람다식을 작성
         double ans3 = action(array -> {
             double sum = 0;
-            for (double num : array) {
-                sum += num;
+            for (double i : array) {
+                sum += i;
             }
             return sum / array.length;
         });
