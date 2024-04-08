@@ -21,4 +21,5 @@ public class test3 {
             System.out.println("예외 정보: " + e);
         }
     }
+    scanner.close();
 }
