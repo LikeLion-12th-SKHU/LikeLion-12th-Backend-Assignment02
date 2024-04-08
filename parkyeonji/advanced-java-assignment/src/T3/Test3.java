@@ -13,7 +13,7 @@ public class Test3 {
             int sum = 0;
 
             for (int i = 0;i < count; i++) {
-                array[i] = Integer.parseInt(scanner.nextLine());
+                array[i] = Integer.parseInt(scanner.next());
                 sum += array[i];
             }
 
