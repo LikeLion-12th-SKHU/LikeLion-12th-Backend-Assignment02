@@ -23,7 +23,7 @@ public class Test3 {
                     int num = Integer.parseInt(number);
                     sum += num;
                 } catch (NumberFormatException e) {
-                    System.out.println("예외가 발생하였습니다!");
+                    System.out.println("예외가 발생하였습니다! " + "예외정보: " + e);
                 }
             }
             System.out.println("정수들의 합은 " + sum);
