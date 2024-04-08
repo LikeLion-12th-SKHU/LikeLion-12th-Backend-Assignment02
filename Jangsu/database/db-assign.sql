@@ -50,16 +50,21 @@ REFERENCES `BOOK` (
 	`BOOK_ID`
 );
 
-INSERT INTO "USER"(STUDENT_ID, SEAT_ID, BOOK_ID, NAME, GRADE, RETURN_DATE, RESERVE_DATE) 
-VALUES(202417101, 1, '1', '한장수', '1', '20240410', '-'),
-              (202417102, 2, '2', '이장수', '1', '20240411', '20240411'),
-              (202316100, 3, '3', '김수한', '2', '20240422', '20240408'),
-              (202316101, 4, '4', '오징어', '2', '20240421', '-');
+INSERT INTO USER_ID(STUDENT_ID, NAME, RETURN_DATE, RESERVE_DATE, SEAT_ID,BOOK_ID)
+VALUES('202417101', '한장수', '20240411', '20240408', 1, '1'),
+           ('202417102', '이장수', '20240412', '20240408', 2, '2'),
+           ('202416100', '박장수', '20240422', '20240408', 3, '3');
 
 INSERT INTO SEAT(SEAT_ID, NAME, IN_TIME, OUT_TIME)
-VALUES(1, '한장수', '04071200', '04071500'),
-	      (2, '오징어', '04071000', '04071300');
+VALUES(1, '한장수', '04081200', '04081500'),
+	   (2, '이장수', '04081000', '04081300'),
+           (3, '박장수', '04081100', '04081400');
 
 INSERT INTO BOOK ( BOOK_ID, BOOK_NAME , CALL_NUMBER , NAME )
-VALUES ('3', '컴퓨터1', '001.23김', '김수한'),
-               ('2', '문학1', '963.23조', '이장수'); 
+VALUES ('1', '컴퓨터1', '001.23김', '한장수'),
+            ('2', '문학1', '963.23조', '이장수'), 
+            ('3', '과학1', '451.45박', '박장수');
+
+SELECT USER_ID.STUDENT_ID, SEAT.SEAT_ID, SEAT.NAME FROM USER_ID LEFT JOIN SEAT ON USER_ID.NAME = SEAT.NAME;
+
+SELECT USER_ID.STUDENT_ID, BOOK.BOOK_NAME, BOOK.CALL_NUMBER FROM USER_ID LEFT JOIN BOOK ON USER_ID.NAME = BOOK.NAME;
