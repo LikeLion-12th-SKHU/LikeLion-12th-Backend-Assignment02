@@ -13,7 +13,7 @@ public class Test1 {
 
 		double avg = list.stream()
 				.mapToDouble(Math::sqrt)
-				.sum()/ list.size();
+				.average().getAsDouble();
 		System.out.println(avg);
 	}
 }

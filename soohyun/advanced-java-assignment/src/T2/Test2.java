@@ -12,20 +12,15 @@ public class Test2 {
 
 	public static void main(String[] args) {
 		double ans1 = action(array -> {
-			double maxValue=Double.MIN_VALUE;
-			for (double x : array){
-				maxValue=Math.max(maxValue,x);
-			}
+			double maxValue=Arrays.stream(array).max().getAsDouble();
 			return maxValue;
 		});
 		System.out.println(ans1);
 
 		double ans2 = action((array -> {
 			double avgValue = 0;
-			for (double x: array){
-				avgValue+=x;
-			}
-			return avgValue/array.length;
+			avgValue= Arrays.stream(array).average().getAsDouble();
+			return avgValue;
 		}));
 		System.out.println(ans2);
 	}
