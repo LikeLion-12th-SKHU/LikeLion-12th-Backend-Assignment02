@@ -1,22 +1,22 @@
 CREATE TABLE `book` (
     `bookNum`	int	NOT NULL,
-    `name`	string	NOT NULL,
-    `publisher`	string	NOT NULL,
+    `name`	varchar	NOT NULL,
+    `publisher`	varchar	NOT NULL,
     `price`	int	NOT NULL
 );
 
 CREATE TABLE `customer` (
     `id`	int	NOT NULL,
-    `name`	string	NOT NULL,
-    `ssn`	string	NOT NULL,
-    `cellPhone`	string	NOT NULL
+    `name`	varchar	NOT NULL,
+    `ssn`	varchar	NOT NULL,
+    `cellPhone`	varchar	NOT NULL
 );
 
 CREATE TABLE `order` (
      `orderNum`	int	NOT NULL,
      `id`	int	NOT NULL,
      `bookNum`	int	NOT NULL,
-     `date`	string	NOT NULL,
+     `date`	varchar	NOT NULL,
     FOREIGN KEY id REFERENCES customer (id),
     FOREIGN KEY bookNum REFERENCES book (bookNum)
 );
@@ -57,6 +57,6 @@ VALUES (1, 1, 1, '2024-07-01')
 
 SELECT order.*, book.bookNum, customer.*
 FROM order
-JOIN book ON book.bookNum = order.bookNum
+JOIN book ON order.bookNum = book.bookNum
 JOIN customer ON order.id = customer.id;
 
