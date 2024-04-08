@@ -9,25 +9,25 @@ public class Test2 {
 
     public static void main(String[] args) {
         // 문제2: 주어진 배열에서 최댓값을 계산하는 람다식 작성
-        double ans1 = action((array -> {
+        double ans1 = action(array -> {
             double max = array[0];
-            for (int i = 0; i<array.length;i++) {
-                if (array[i] > max)
-                    max = array[i];
+            for (double i : array) {
+                if (i > max)
+                    max = i;
             }
             return max;
-        }));
+        });
         System.out.println(ans1);
 
         // 문제3: 주어진 배열에서 평균값 계산하는 람다식 작성
-        double ans2 = action((array -> {
+        double ans2 = action(array -> {
             double sum = 0;
-            for (int i = 0; i < array.length; i++) {
-                sum += array[i];
+            for (double i : array) {
+                sum += i;
             }
             double avg = sum / array.length;
             return avg;
-        }));
+        });
         System.out.println(ans2);
     }
 }
