@@ -9,13 +9,13 @@ CREATE TABLE `user` (
 	`id`	String	NOT NULL,
 	`cardNumber`	String	NOT NULL,
 	`name`	VARCHAR(255)	NULL,
-	`bank`	VARCHAR(255)	NULL,
+	`age`	VARCHAR(255)	NULL,
 	`accountNumber`	VARCHAR(255)	NULL
 );
 
 CREATE TABLE `bank` (
 	`id`	String	NOT NULL,
-	`age`	VARCHAR(255)	NULL,
+	`bankBook`	VARCHAR(255)	NULL,
 	`vipGrade`	VARCHAR(255)	NULL,
 	`password`	VARCHAR(255)	NULL
 );
@@ -47,32 +47,17 @@ REFERENCES `card` (
 	`cardNumber`
 );
 
-INSERT TABLE card(cardNumber, cvc, cardType, bankConnect) VALUES
-('1242-43-5436', '213', 'CHECK', 'KBSTAR')
+INSERT INTO 'card'(cardNumber, cvc, cardType, bankConnect) VALUES
+('1242-43-5436', '213', 'CHECK', 'KBSTAR'),
+('4988-93-2966', '052', 'CHECK', 'SHINHAN'),
+('5461-00-8944', '567', 'CREDIT', 'KBSTER');
 
-INSERT TABLE card(cardNumber, cvc, cardType, bankConnect) VALUES
-('4988-93-2966', '052', 'CHECK', 'SHINHAN')
+INSERT INTO 'bank'(id, bankBook, vipGrade, password) VALUES
+('KIM312', '1412-6548', 'NORMAL', '5347'),
+('LEE124', '1205-5967', 'VIP', '9045'),
+('PARK822', '5478-1238', 'VVIP', '1588');
 
-INSERT TABLE card(cardNumber, cvc, cardType, bankConnect) VALUES
-('5461-00-8944', '567', 'CREDIT', 'KBSTER')
-
-INSERT TABLE bank(id, bankBook, vipGrade, password) VALUES
-('KIM312', '1412-6548', 'NARMAL', '5347')
-
-INSERT TABLE bank(id, bankBook, vipGrade, password) VALUES
-('LEE124', '1205-5967', 'VIP', '9045')
-
-INSERT TABLE bank(id, bankBook, vipGrade, password) VALUES
-('PARK822', '5478-1238', 'VVIP', '1588')
-
-INSERT TABLE user(name, , age, accountNumber) VALUES
-('PARK822', '42', '177473')
-
-INSERT TABLE user(name, age, vipGrade, accountNumber) VALUES
-('PARK822', '38', '138905')
-
-INSERT TABLE user(name, age, vipGrade, accountNumber) VALUES
-('PARK822', '58', '546458')
-
-
-
+INSERT INTO 'user'(name, age, accountNumber) VALUES
+('PARK822', '42', '177473'),
+('PARK822', '38', '138905'),
+('PARK822', '58', '546458');
