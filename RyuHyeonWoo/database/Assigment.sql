@@ -1,4 +1,4 @@
-﻿CREATE TABLE `card` (
+CREATE TABLE `card` (
 	`cardNumber`	VARCHAR(255)	NOT NULL,
 	`cvc`	VARCHAR(255)	NOT NULL,
 	`cardType`	VARCHAR(255)	NOT NULL,
