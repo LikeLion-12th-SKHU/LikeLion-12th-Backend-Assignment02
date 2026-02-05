@@ -1,0 +1,47 @@
+CREATE TABLE Customer (
+    Customer_ID INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Phone_Number VARCHAR(20)
+);
+
+CREATE TABLE Restaurant (
+    Restaurant_ID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Address VARCHAR(100),
+    Category VARCHAR(50)
+);
+
+CREATE TABLE Reservation (
+    Reservation_ID INT PRIMARY KEY,
+    Customer_ID INT,
+    Restaurant_ID INT,
+    Reservation_Date DATE,
+    Reservation_Time TIME,
+    FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+    FOREIGN KEY (Restaurant_ID) REFERENCES Restaurant(Restaurant_ID)
+);
+
+
+INSERT INTO Customer (Customer_ID, Name, Phone_Number) VALUES
+(1, '이승현', '010-1234-5678'),
+(2, '김무빈', '010-1224-5678'),
+(3, '조서윤', '010-1233-5678'),
+(4, '홍경욱', '010-1244-5678'),
+(5, '이유림', '010-1234-5567');
+
+INSERT INTO Restaurant (Restaurant_ID, Name, Address, Category) VALUES
+(101, '세종대왕', '서울시 강남구', '한식'),
+(102, '자유의여신상', '서울시 강북구', '양식'),
+(103, '데스까', '서울시 종로구', '일식'),
+(104, '니하오마', '서울시 강서구', '중식');
+
+INSERT INTO Reservation (Reservation_ID, Customer_ID, Restaurant_ID, Reservation_Date, Reservation_Time) VALUES
+(201, 1, 101, '2024-04-01', '18:00:00'),
+(202, 2, 102, '2024-04-02', '19:00:00'),
+(203, 3, 103, '2024-04-03', '20:00:00'),
+(204, 4, 104, '2024-04-04', '21:00:00');
+
+SELECT r.Reservation_ID, c.Name AS Customer_Name, c.Phone_Number, res.Name AS Restaurant_Name, res.Address, res.Category, r.Reservation_Date, r.Reservation_Time
+FROM Reservation r
+JOIN Customer c ON r.Customer_ID = c.Customer_ID
+JOIN Restaurant res ON r.Restaurant_ID = res.Restaurant_ID;
